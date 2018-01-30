@@ -25,7 +25,10 @@ body{
 .token.function{
     color: #DD4A68;
 }
-
+/*加一点3D效果*/
+#code{
+    transform:rotateX(360deg);
+}
 `
 var html = Prism.highlight(result, Prism.languages.css);
 var n=0
@@ -35,5 +38,36 @@ var id=setInterval(()=>{
   code.innerHTML=Prism.highlight(code.innerHTML, Prism.languages.css);                                    
   styleTag.innerHTML=result.substring(0,n);
   if(n>=result.length)
-    window.clearInterval(id)
+   { 
+    window.clearInterval(id)   
+    fn2()
+    fn3()
+}
+ 
 },10);
+
+function fn2(){
+    var paper=document.createElement('div')
+    paper.id='paper'
+    document.body.appendChild(paper)
+}
+
+function fn3(){
+    var result=`#paper
+    {
+        width:100px;
+        height:100px;
+        display:block;
+        background:red;
+    }`
+    var n=0
+    var id=setInterval(()=>{
+        n+=1
+        code.innerHTML=code.innerHTML+result.substring(n-1,n)
+        code.innerHTML=Prism.highlight(code.innerHTML, Prism.languages.css);  
+        styleTag.innerHTML=code.innerHTML
+        if(n>=result.length){
+            window.clearInterval(id)
+        }
+    },100)
+}
