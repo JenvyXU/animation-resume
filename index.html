@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style id="styleTag">
+  </style>
+</head>
+<body>
+<pre id='code'>
+</pre>
+<script id="jsbin-javascript">
+var result=`/*
+ *面试官你好，我是XXX
+ *我将以动画的形式介绍我自己
+ *只用文字介绍太单调了
+ *我就用代码来介绍吧
+ *首先准备一些样式*/
+*
+{transition:all 0.5s;}
+body{
+  background:grey; 
+  font-size:16px;
+}
+
+#code{
+  border:1px solid blue;
+  padding:16px;
+}
+
+`
+var n=0
+var id=setInterval(()=>{
+  n+=1; 
+  code.innerHTML=result.substring(0,n);
+  code.innerHTML=code.innerHTML.replace('body','<span style="color:red">body</span>')
+                                        
+  styleTag.innerHTML=result.substring(0,n);
+   
+  if(n>=result.length)
+    window.clearInterval(id)
+},100);
+
+</script>
+</body>
+</html>
