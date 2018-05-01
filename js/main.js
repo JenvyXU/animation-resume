@@ -3,53 +3,46 @@ var result1=`
 *你好，~我是许振威~
 *
 *
-*只用文字介绍我太单调了
-~*所以
-~*换成动画的方式来介绍我自己...
+*只用文字介绍我太单调了~
+*
+*所以~
+*
+*换成动画的方式来介绍我自己...~
+*
 */
-
 *{
   transition:all 1s;
 }
-
 body{
   background:rgb(63, 82, 99);
   font-size:14px;
   color:white;
   height:100vh;
 }               
-/*文字太靠边了，挪一下位置*/    
+/*文字太靠边了，挪一下位置*~ /   
 #code{
   padding:16px; 
 }
-
-/*代码只有一种颜色，高亮一下*/
-.token.selector{
-    color: yellow;
-}
-.token.property{
-    color: green;
-}
-.token.function{
-    color: red;
-}
+/*代码只有一种颜色，高亮一下~*/
+.token.selector{ color: #690; }
+.token.property{ color: #905; }
 /*把界面移动到左边*/
 body{
     perspective:1000px;
 }
 #code{
     width:49%;
-    height:97%;
     background:rgb(48, 48, 48);
     outline:1px solid white;
     margin-left:50%;
     transform-origin: right;
-    transform: translateY(1%) rotateY(-10deg);  
+    transform: translateY(1%) rotateY(-10deg); 
+    max-height:97%; 
 }
 
 `
 var result2=`
-/*接下来需要一个合适的位置来介绍我自己*/
+/*接下来需要一个合适的位置来介绍我自己~*/
 #paper{
   position:fixed;
   top:1%;
@@ -68,7 +61,7 @@ width:100%;
 color:white;
 }
 `
-var md=`
+var profile=`
 # 自我介绍
 
 我叫许振威
@@ -102,10 +95,10 @@ QQ:1272117264@qq.com
 `
 var result3=`
 /*接下把md格式的自我介绍转成html形式
-*3~~
-*2~~
-*1~~
-*...
+*3~
+*2~
+*1~
+*...~
 *请注意
 */
 
@@ -116,7 +109,8 @@ var result3=`
 `
 
 var result4=`
-/*但是页面看起来怪怪的，调整一下样式*/
+/*但是页面看起来怪怪的，调整一下样式~
+*/
 #paper{
     padding:40px;
 }
@@ -124,40 +118,50 @@ var result4=`
 #paper>.content>ul,ol{
     list-style:none;
    }
-   
-#paper,#code{
-   box-shadow: 0px 0px 40px 5px rgba(255,255,255,0.4);}
+   s
+#paper{    box-shadow: 0px 0px 40px 5px rgba(255,255,255,0.4);}
+#code{    box-shadow: 0px 0px 40px 5px rgba(255,255,255,0.4);}
 `
-
-
+let isPlay=true
+resume.onclick=function(){
+    window.open('https://jenvyxu.github.io/resume/index.html')
+}
+restart.onclick=function(){
+    location.reload()
+}
 writeCode('',result1,()=>{
     writePaper(()=>{
         writeCode(result1,result2,()=>{
-            writeMarkdown(md,()=>{
+            writeMarkdown(profile,()=>{
                 let domPaper=document.querySelector('#paper>.content')
                 writeCode(result1+result2,result3,()=>{
+                    console.log(1);
                     domPaper.innerHTML=marked(domPaper.innerHTML)
+                    console.log(2);
                     writeCode(result1+result2+result3,result4,()=>{
                     })
                 })
-
             })
         })
     })
 })
 
-
 /*把code写进#code和style标签里面*/
 function writeCode(prefix,code,fn){
     let domCode=document.querySelector('#code')
+    let domContent=document.querySelectorAll('#paper>.content')
     domCode.innerHTML=prefix||''
     let n=0
     let id=setInterval(()=>{
-        n+=1
-        if(code[n-1]==='~'){
-            let reg = new RegExp('~','g')
-            code = code.replace(reg,'')
-            delay(3)
+        if(isPlay){
+            n+=1
+            if(code[n-1]==='~'){
+                let reg = new RegExp('~')
+                code = code.replace(reg,'')
+                console.log(code);
+                isPlay=false
+                console.log('~')
+                setTimeout(()=>{isPlay=true},500)
                 domCode.innerHTML=Prism.highlight(prefix+code.substring(0,n),Prism.languages.css)
                 styleTag.innerHTML=prefix+code.substring(0,n)
                 domCode.scrollTop=domCode.scrollHeight
@@ -165,30 +169,38 @@ function writeCode(prefix,code,fn){
                     window.clearInterval(id)
                     fn.call()
                 }
-
-        }
-        else{
-            domCode.innerHTML=Prism.highlight(prefix+code.substring(0,n),Prism.languages.css)
-            styleTag.innerHTML=prefix+code.substring(0,n)
-            domCode.scrollTop=domCode.scrollHeight
-            if(n>=code.length){
-                window.clearInterval(id)
-                fn.call()
+            }
+            else{
+                domCode.innerHTML=Prism.highlight(prefix+code.substring(0,n),Prism.languages.css)
+                styleTag.innerHTML=prefix+code.substring(0,n)
+                domCode.scrollTop=domCode.scrollHeight
+                if(n>=code.length){
+                    window.clearInterval(id)
+                    fn.call()
+                }
             }
         }
-
     },60)
-}
+    ending.onclick=function(){
 
+            window.clearInterval(id)
+            writePaper(()=>{})
+            let domPaper=document.querySelector('#paper>.content')
+            domPaper.innerHTML=marked(profile)
+            styleTag.innerHTML=result1+result2+result3+result4
+            domCode.innerHTML=Prism.highlight(result1+result2+result3+result4,Prism.languages.css)
+
+    }
+}
 
 /*             */
 function writePaper(fn){
-    var paper=document.createElement('div')
-    paper.id='paper'
-    var content=document.createElement('pre')
-    content.className='content'
-    paper.appendChild(content)
-    document.body.appendChild(paper)
+    //var paper=document.createElement('div')
+    //paper.id='paper'
+    //var content=document.createElement('pre')
+    //content.className='content'
+    //paper.appendChild(content)
+    //document.body.appendChild(paper)
     fn.call()
 }
 
@@ -197,7 +209,7 @@ function writeMarkdown(markdown,fn){
   let n=0
   let id=setInterval(()=>{
     n+=1
-    domPaper.innerHTML=markdown.substring(0,n)
+    domPaper.innerHTML=profile.substring(0,n)
     domPaper.scrollTop=domPaper.scrollHeight
     if(n>=markdown.length){
       window.clearInterval(id)

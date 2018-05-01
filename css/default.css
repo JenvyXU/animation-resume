@@ -3,9 +3,11 @@
 body{
 
 }
-
+#paper>.contetn{
+    color: white;
+}
 #code{
-  overflow: hidden;
+  overflow: auto;
   height: 100vh;
 }
 .token.selector{
@@ -21,8 +23,13 @@ body{
     position: fixed;
     bottom:0;
     color:black;
-    border: 1px solid red;
+    font-weight: bold;
+    padding: 5px;
     text-align: center;
     width: 100%;
-    font-size: 20px;
+    font-size: 14px;
+    font-family: Arial;
+}
+#xxxx>#ending,#resume,#restart{
+    cursor: pointer;
 }
