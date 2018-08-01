@@ -1,22 +1,29 @@
 *{padding:0;margin:0;}
 *{box-sizing: border-box;}
+
+*{
+    transition:all 1s;
+}
 body{
+    height:100vh;
 
 }
-#paper>.contetn{
+#md a{
+    color: white;
+    text-decoration: none;
+}
+#paper>.content{
     color: white;
 }
 #code{
   overflow: auto;
   height: 100vh;
 }
-.token.selector{
-    color: black;
-}
-.token.property{
-    color: black;
-}
-.token.function{
+.token.selector,
+.token.property,
+.token.function,
+.token.comment,
+.token.punctuation{
     color: black;
 }
 #xxxx{
