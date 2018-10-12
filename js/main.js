@@ -1,140 +1,114 @@
-var result1=`
-/**
+let result1=`/*
+* Hi, 我是Jenvyxu
 *
-*面试官你好，~
+* 很高兴你打开了这个网页
+*   
+* 接下来我会通过动画的方式式介绍我自己
 *
-*我是~许振威~
-*
-*只用静态的文字介绍我太单调了~
-*
-*所以~
-*
-*决定换成动画的形式来介绍我自己...~
+* 最后，你会看见我最终的简历
 *
 */
 
-/**
-*可是文字太靠边了，先设置好文字的位置吧~
-*/
-#code{
-    padding:10px;   
-    }
-/**
-*同样把文字和背景颜色也修改一下吧~
-*/  
+/* OK, 那我们开始吧... */
+
 body{
-  background:rgb(63, 82, 99);
-} 
-.token.selector,
-.token.property,
-.token.function,
-.token.comment,
-.token.punctuation,
-#code{
+    background: rgb(0, 43, 54);
     color: white;
-}    
+}
 #code{
-    max-height:60%;
-    width:49%; 
-    background:rgb(48, 48, 48);
-    overflow:auto; 
+    padding: 20px;
+    background: rgb(48, 48, 48);
+    outline: 1px solid white;
+    overflow: auto;
+}
+#buttons{
+    display: block;
 }
 
-/**
-*嗯，代码的颜色只有一种，看起来有点单调，那就对代码高亮一下吧~
-*/~
+/*
+*OK，先把代码高亮一下
+*/
+
 .token.selector{ color: #690; }
 .token.property{ color: #905; }
 
-/**
-*然后~
-*把界面移动到左边~
-*/
-body{
-    perspective:1000px;
-}
-#code{
-    margin-left:50%;
-    background:rgb(48, 48, 48);
-    outline:1px solid white;
-    transform-origin: right;
-    transform: translateY(1%) rotateY(-10deg); 
-    max-height:97%;
-}
-
-
 `
-var result2=`
+let result2=`
 /**
-*我想在屏幕的左边介绍我自己~
-*那么在左边准备一个窗口吧~
+*我想在网页的右边介绍我自己~
+*
+*那么在右边准备一张白纸吧~
 */
 #paper{
-  position:fixed;
-  top:1%;
-  left:1%;
-  transform-origin: left;
-  transform: rotateY(10deg); 
-  width:49%;
-  min-height:50%;  
-  background:rgb(48, 48, 48);
-  outline:1px solid white;    
-  overflow:auto;  
+  width: 50%;
+  padding: 20px 20px 20px 10px;  
+  
 }
 
 #paper>.content{
-    padding:10px;
-    width:100%;
-    color:white;
+   height: 100%;
+   overflow: auto;
+   padding: 40px;
+   background: #fff;
+   outline: black;
 }
 
 /**
-*好哒，一切都已经准备就绪~
+*OK，一切都已经准备就绪~
+*
 *接下来我会在屏幕的左边来介绍我自己~
 */
 `
 
-var profile=`
-# 基本信息
+let profile=`
 
-姓名：许振威
+# 许振威
+应聘职位：前端工程师
 性别：男
-出生年月：1992年1月30日
-毕业院校：大连海事大学(2011~2015)
-专业：通信工程
-学历：本科
-### 联系方式
-Wechat:xuzhenwei111 | QQ:1272117264 | Phone:18316304477 | Email:1272117264@qq.com
- 
-# 自我介绍
-大学毕业后一直从事计算机硬件相关的工作，因为想转行互联网，因此自学前端半年多，希望应聘前端开发岗位，
-经过半年多的摸索学习，能够熟练使用Html、CSS3和Javascript制作前端网页，100%还原设计图，熟悉jQuery
-和ES6语法，理解MVC设计模式，熟练使用Vue框架。
+年龄：26
+邮箱：1272117264@qq.com
 
-# 技能介绍
-* JavaScript 熟练度：70%
-* CSS3
-* jQuery 
-* Vue
+# 专业技能
+## HTML5 & CSS3
+熟悉HTML5常用标签，编写具有语义化的文档结构，比如nav、header、footer、aside、main等，熟悉CSS常见布局方法和技巧， 能独立设计精美页面，百分百还原设计稿。
+## Javascript
+熟悉JS语法，在不借助框架的条件下，能够使用JavaScript的提供的标准库和浏览器提供的api实现项目需求。
+## 移动端开发
+能够使用REM，vw/vh、媒体查询等技术开发移动端页面。
+## jQuery & ES6
+熟悉jQuery的常用api和ES6语法，能够在项目中熟练使用jQuery和ES6。
+## Vue
+有Vue项目开发经验，熟悉Vue常用功能，如组件、Vue-router、双向绑定等，理解钩子的生命周期和Vue的响应式原理。
+## webpack
+有webpack项目打包经验，了解其管理资源的方法，熟悉常用loader，能够根据需求配置webpack。
+  
+# 项目经历
+## 1. 键盘导航
+### 关键词：原生JS
+描述：项目不使用任何库和框架，通过原生JS生成26个按键，每个按键绑定一个网址，绑定的网址可以修改，按下键盘上的按键可以跳转到绑定的网站上。
+## 2. 画板
+### 关键词：Canvas / 原生JS
+描述：项目通过调用Canvas api实现画笔、橡皮檫、保存画布等功能，画笔的大小和颜色都可以改变，通过响应式技术在移动端实现画板功能。
+## 3. 皮卡丘
+### 关键词：CSS3
+描述：项目使用CSS3绘制皮卡丘的脸，然后通过JS控制CSS把皮卡丘的脸一点一点的画出来。
+## 4. 网易云音乐
+### 关键词：MVC / 移动端开发 / 响应式
+描述：项目使用了MVC设计模式，借助七牛和leancloud提供的api，在后台页面实现歌曲、歌词和封面的上传，移动端页面通过响应式技术和MVC设计模式，百分百还原网易云音乐的移动端界面，并且实现了后台上传歌曲的播放、封面和歌词的展示。
+## 5. Vue在线简历编辑器
+### 关键词：Vue / MVC / Webpack
+描述：项目使用了Vue框架和MVC设计模式，通过Vue-router和leancloud提供的api实现登录注册功能，通过Vue组件的方式实现简历的编辑功能，通过调用leancloud提供的api实现简历资料的保存和读取，通过webpack对项目进行打包。
+   
+# 教育经历
+大连海事大学    通信工程/本科    2011~2015
 
-# 项目介绍
-
-1. 键盘导航
-   技术栈：原生JS
-2. canvas画板
-   技术栈：Canvas 原生js
-4. CSS3画皮卡丘
-3. 网易云音乐
-   技术栈：MVC框架
-4. Vue在线简历编辑器
-   技术栈：Vue
-
-
-
+# 链接
+博客：https://jenvyxu.github.io/index.html
+Github：https://github.com/JenvyXU
 `
-var result3=`
+let result3=`
 /**
-*接下把md格式的自我介绍转成html形式
+*接下把md格式的自我介绍转成html格式
 *3~
 *2~
 *1~
@@ -142,49 +116,69 @@ var result3=`
 *请注意
 */
 
-#paper{
-    transform:rotateY(370deg);
-}
-
 `
 
-var result4=`
+let result4=`
 /**
-*可是页面的样式不怎么好看，作一下调整吧~
+*但是简历的排版不好看，稍作一下调整~
 */
-#paper{
-    padding:40px;
+
+#paper>a{ 
+    color: white; 
 }
-#paper>a{ color:white; }
 #paper>.content>ul,ol{
-    list-style:none;
-    }
-#paper{    box-shadow: 0px 0px 40px 5px rgba(255,255,255,0.4);}
-#code{    box-shadow: 0px 0px 40px 5px rgba(255,255,255,0.4);}
+    list-style: none;
+}
+h2{
+    font-size: 18px;
+    margin-bottom: -14px;
+    margin-top: -5px;
+}
+h3{
+    margin-bottom: -15px;
+    font-size: 14px;
+}
 `
+let result5=`
+/*
+*OK, 最终的简历已经完成
+*
+*如果对我感兴趣，请通过邮箱联系我
+*
+*想进一步了解我，请点击网页简历
+*
+*再见~
+*
+*
+*/
+`
+
 let isPlay=true
+
 resume.onclick=function(){
     window.open('https://jenvyxu.github.io/resume/index.html')
 }
+
 restart.onclick=function(){
     location.reload()
 }
+
 writeCode('',result1,()=>{
-    writePaper(()=>{
-        writeCode(result1,result2,()=>{
-            writeMarkdown(profile,()=>{
-                let domPaper=document.querySelector('#paper>.content')
-                writeCode(result1+result2,result3,()=>{
-                    console.log(1);
-                    domPaper.innerHTML=marked(domPaper.innerHTML)
-                    console.log(2);
-                    writeCode(result1+result2+result3,result4,()=>{
+        writePaper(()=>{
+            writeCode(result1,result2,()=>{
+                writeMarkdown(profile,()=>{
+                    let domPaper=document.querySelector('#paper>.content')
+                    writeCode(result1+result2,result3,()=>{
+                        domPaper.innerHTML=marked(domPaper.innerHTML)
+                        writeCode(result1+result2+result3,result4,()=>{
+                            writeCode(result1+result2+result3+result4,result5,()=>{})
+                        })
                     })
                 })
             })
         })
     })
-})
+
 
 /*把code写进#code和style标签里面*/
 function writeCode(prefix,code,fn){
@@ -198,10 +192,10 @@ function writeCode(prefix,code,fn){
             if(code[n]==='~'){
                 let reg = new RegExp('~')
                 code = code.replace(reg,'')
-                console.log(code);
                 isPlay=false
-                console.log('~')
+
                 setTimeout(()=>{isPlay=true},500)
+
                 domCode.innerHTML=Prism.highlight(prefix+code.substring(0,n),Prism.languages.css)
                 styleTag.innerHTML=prefix+code.substring(0,n)
                 domCode.scrollTop=domCode.scrollHeight
@@ -211,6 +205,7 @@ function writeCode(prefix,code,fn){
                 }
             }
             else{
+
                 domCode.innerHTML=Prism.highlight(prefix+code.substring(0,n),Prism.languages.css)
                 styleTag.innerHTML=prefix+code.substring(0,n)
                 domCode.scrollTop=domCode.scrollHeight
@@ -220,7 +215,8 @@ function writeCode(prefix,code,fn){
                 }
             }
         }
-    },60)
+    },80)
+
     ending.onclick=function(){
 
             window.clearInterval(id)
@@ -255,10 +251,10 @@ function writeMarkdown(markdown,fn){
       window.clearInterval(id)
       fn.call()
     }
-  },60)
+  },80)
 }
 
 function delay(time){
-    let i=time*300000000
+    let i=time*30000000
     while(i>0){i--}
 }

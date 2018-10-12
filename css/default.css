@@ -1,42 +1,65 @@
 *{padding:0;margin:0;}
 *{box-sizing: border-box;}
-
 *{
     transition:all 1s;
 }
+pre{
+    white-space: pre-wrap;
+}
+
 body{
     height:100vh;
+    font-size: 14px;
+    display: flex;
+}
+.left{
+    width: 50%;
+    height: 100%;
+    padding: 20px 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-}
+
 #md a{
-    color: white;
     text-decoration: none;
+    color: black;
 }
+
 #paper>.content{
-    color: white;
-}
-#code{
-  overflow: auto;
-  height: 100vh;
+    color: black;
+    background: white;
+    word-break: break-all;
+    transition: all 1s;
 }
 .token.selector,
 .token.property,
 .token.function,
 .token.comment,
 .token.punctuation{
-    color: black;
+
 }
-#xxxx{
-    position: fixed;
-    bottom:0;
-    color:black;
-    font-weight: bold;
-    padding: 5px;
+#buttons{
+    display: none;
+    margin-top: 20px;
+    color:white;
     text-align: center;
     width: 100%;
-    font-size: 14px;
-    font-family: Arial;
+    font-size: 16px;
+    background:rgb(48, 48, 48);
+    outline: 1px solid white;
 }
-#xxxx>#ending,#resume,#restart{
+#ending,#resume,#restart{
+    line-height: 60px;
+    margin: 0 15px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+#ending:hover,
+#resume:hover,
+#restart:hover{
+    color: orange;
+
 }
